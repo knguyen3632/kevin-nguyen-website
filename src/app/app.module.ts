@@ -9,6 +9,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { WeatherProjectComponent } from './projects/weather-project/weather-project.component';
+import { JobTrackerProjectComponent } from './projects/job-tracker-project/job-tracker-project.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { NavigationComponent } from './navigation/navigation.component';
     ProjectsComponent,
     WorkExperienceComponent,
     ContactComponent,
-    NavigationComponent
+    NavigationComponent,
+    WeatherProjectComponent,
+    JobTrackerProjectComponent
   ],
   imports: [
     BrowserModule,
