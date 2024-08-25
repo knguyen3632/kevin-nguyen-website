@@ -11,13 +11,32 @@
             >
               Home
             </a>
-            <a
-              routerLink="projects"
-              class="rounded-md hover:bg-gray-700 px-3 py-2 text-md font-medium text-white"
-              id="projects"
-            >
-              Projects
-            </a>
+            <div class="dropdown">
+              <button
+                routerLink="projects"
+                class="dropbtn rounded-md hover:bg-gray-700 px-3 py-2 text-md font-medium text-white inline-flex w-full justify-center gap-x-1.5"
+                id="projects"
+              >
+                Projects
+                <svg
+                  class="-mr-1 h-5 w-5 text-gray-400"
+                  style="padding-top: 5px"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div class="dropdown-content">
+                <a routerLink="weather-app">Weather App</a>
+                <a routerLink="job-tracker-app">Job Tracker App</a>
+              </div>
+            </div>
             <a
               routerLink="work-experience"
               class="rounded-md hover:bg-gray-700 px-3 py-2 text-md font-medium text-white"
