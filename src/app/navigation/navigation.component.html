@@ -11,7 +11,14 @@
             >
               Home
             </a>
-            <div class="dropdown">
+            <a
+              routerLink="projects"
+              class="rounded-md hover:bg-gray-700 px-3 py-2 text-md font-medium text-white"
+              id="projects"
+            >
+              Projects
+            </a>
+            <!-- <div class="dropdown">
               <button
                 routerLink="projects"
                 class="dropbtn rounded-md hover:bg-gray-700 px-3 py-2 text-md font-medium text-white inline-flex w-full justify-center gap-x-1.5"
@@ -33,10 +40,10 @@
                 </svg>
               </button>
               <div class="dropdown-content">
-                <a routerLink="weather-app">Weather App</a>
-                <a routerLink="job-tracker-app">Job Tracker App</a>
+                <a routerLink="/weather-app">Weather App</a>
+                <a routerLink="/job-tracker-app">Job Tracker App</a>
               </div>
-            </div>
+            </div> -->
             <a
               routerLink="work-experience"
               class="rounded-md hover:bg-gray-700 px-3 py-2 text-md font-medium text-white"
@@ -58,4 +65,6 @@
   </div>
 </nav>
 
-<router-outlet></router-outlet>
+<div class="container mx-auto px-20 pt-20">
+  <router-outlet></router-outlet>
+</div>

@@ -1,1 +1,170 @@
-<p>weather-project works!</p>
+<div class="container text-center">
+  <header>
+    <div>
+      <h1>Weekly Weather Report</h1>
+    </div>
+  </header>
+  <br />
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <form #myForm="ngForm">
+        <!--  -->
+        <input
+          type="text"
+          placeholder="Zipcode"
+          class="mt-1 px-3 py-2 bg-transparent border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+          name="zipCode"
+          minLength="5"
+          maxLength="7"
+          [(ngModel)]="zipcode"
+          required
+        />
+        <!--  -->
+
+        <div>
+          <p class="py-5" for="units">
+            Units:
+            <select
+              name="units"
+              id="units"
+              (ngModelChange)="setUnit($event)"
+              [(ngModel)]="unit"
+              required
+            >
+              <option value="imperial">Imperial</option>
+              <option value="metric">Metric</option>
+            </select>
+          </p>
+        </div>
+      </form>
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="getWeather()"
+        [disabled]="!myForm.form.valid"
+      >
+        Get Forecast
+      </button>
+
+      <br /><br />
+
+      <ng-container *ngIf="weather.timelines">
+        <em>Location: {{ weather.location?.name }} </em>
+        <div
+          class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md bg-clip-border rounded-xl"
+        >
+          <table class="w-full text-left table-auto min-w-max">
+            <thead>
+              <tr>
+                <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                  <p
+                    class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
+                  >
+                    Date
+                  </p>
+                </th>
+                <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                  <p
+                    class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
+                  >
+                    Temp Low
+                  </p>
+                </th>
+                <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                  <p
+                    class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
+                  >
+                    Temp High
+                  </p>
+                </th>
+                <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                  <p
+                    class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
+                  >
+                    Temp Avg.
+                  </p>
+                </th>
+                <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                  <p
+                    class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
+                  >
+                    Precipitation Avg.
+                  </p>
+                </th>
+                <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                  <p
+                    class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
+                  >
+                    Humidity Avg.
+                  </p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class="even:bg-blue-gray-50/50"
+                *ngFor="let timeline of weather.timelines.daily"
+              >
+                <td class="p-4">
+                  <p
+                    class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
+                  >
+                    {{ timeline.time | date : "fullDate" }}
+                  </p>
+                </td>
+                <td class="p-4">
+                  <p
+                    class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
+                  >
+                    {{ timeline.values.temperatureMin }}
+                    <span *ngIf="unit == 'imperial'; else elseBlock">
+                      &deg;F
+                    </span>
+                    <ng-template #elseBlock>&deg;C</ng-template>
+                  </p>
+                </td>
+                <td class="p-4">
+                  <p
+                    class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
+                  >
+                    {{ timeline.values.temperatureMax }}
+                    <span *ngIf="unit == 'imperial'; else elseBlock">
+                      &deg;F
+                    </span>
+                    <ng-template #elseBlock>&deg;C</ng-template>
+                  </p>
+                </td>
+                <td class="p-4">
+                  <p
+                    class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
+                  >
+                    {{ timeline.values.temperatureAvg }}
+                    <span *ngIf="unit == 'imperial'; else elseBlock">
+                      &deg;F
+                    </span>
+                    <ng-template #elseBlock>&deg;C</ng-template>
+                  </p>
+                </td>
+                <td class="p-4">
+                  <p
+                    class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
+                  >
+                    {{ timeline.values.precipitationProbabilityAvg }} %
+                  </p>
+                </td>
+                <td class="p-4">
+                  <p
+                    class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
+                  >
+                    {{ timeline.values.humidityAvg }} %
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
