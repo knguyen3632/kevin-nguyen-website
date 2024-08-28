@@ -13,6 +13,8 @@ import { ContactComponent } from './contact/contact.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WeatherProjectComponent } from './projects/weather-project/weather-project.component';
 import { JobTrackerProjectComponent } from './projects/job-tracker-project/job-tracker-project.component';
+import { JobAddComponent } from './projects/job-tracker-project/modals/job-add/job-add.component';
+import { JobDeleteComponent } from './projects/job-tracker-project/modals/job-delete/job-delete.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { JobTrackerProjectComponent } from './projects/job-tracker-project/job-t
     ContactComponent,
     NavigationComponent,
     WeatherProjectComponent,
-    JobTrackerProjectComponent
+    JobTrackerProjectComponent,
+    JobAddComponent,
+    JobDeleteComponent
   ],
   imports: [
     AppRoutingModule,
