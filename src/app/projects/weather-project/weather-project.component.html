@@ -1,14 +1,13 @@
 <div class="container text-center">
   <header>
     <div>
-      <h1>Weekly Weather Report</h1>
+      <h1 class="text-4xl">Weekly Weather Report</h1>
     </div>
   </header>
   <br />
   <div class="row justify-content-md-center">
     <div class="col-md-auto">
       <form #myForm="ngForm">
-        <!--  -->
         <input
           type="text"
           placeholder="Zipcode"
@@ -19,7 +18,6 @@
           [(ngModel)]="zipcode"
           required
         />
-        <!--  -->
 
         <div>
           <p class="py-5" for="units">
