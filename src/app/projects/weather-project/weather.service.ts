@@ -19,8 +19,8 @@ export class WeatherService {
 
     console.log(url);
 
-    // return this.http.get<Weather>(url);
+    return this.http.get<Weather>(url);
 
-    return this.http.get("./assets/weather-example.json");
+    // return this.http.get("./assets/weather-example.json");
   }
 }
