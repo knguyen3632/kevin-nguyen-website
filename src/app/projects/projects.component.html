@@ -1,15 +1,31 @@
 <div class="container text-center">
   <header>
-    <div>
-      <h1 class="text-4xl">Here are all my projects...</h1>
-    </div>
+    <h1 class="text-4xl">Here are my projects used to learn Angular</h1>
   </header>
   <br />
-  <div class="row justify-content-md-center">
-    <div class="col-md-auto">
-      <!-- Links to the Projects: -->
-      <p routerLink="/weather-app">Weather App</p>
-      <p routerLink="/job-tracker-app">Job Tracker App</p>
+  <div class="flex w-full">
+    <div
+      class="card w-64 min-w-max py-20 bg-base-300 rounded-box grid flex-grow place-items-center"
+    >
+      <div>
+        <a class="flex items-center" routerLink="/weather-app"
+          ><img
+            class="pr-2"
+            src="../../assets/icons8-weather-forecast-48.png"
+          />Weather App</a
+        >
+      </div>
+    </div>
+    <div class="divider divider-horizontal"></div>
+    <div
+      class="card w-48 min-w-64 py-20 bg-base-300 rounded-box grid flex-grow place-items-center"
+    >
+      <div>
+        <a class="flex items-center" routerLink="/job-tracker-app"
+          ><img class="pr-2" src="../../assets/icons8-job-48.png" />Job Tracker
+          App</a
+        >
+      </div>
     </div>
   </div>
 </div>
