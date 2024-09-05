@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build1": "ng build --configuration production --base-href 'https://knguyen3632.github.io/kevin-nguyen-website/'",
+    "build2": "npx angular-cli-ghpages --dir=dist/kevin-nguyen-website"
   },
   "private": true,
   "dependencies": {
